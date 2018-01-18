@@ -424,6 +424,13 @@
 #endif
 #define CURL_OFF_T_MIN (-CURL_OFF_T_MAX - CURL_OFF_T_C(1))
 
+#if (SIZEOF_TIME_T == 4)
+#define TIME_T_MAX INT_MAX
+#define TIME_T_MIN INT_MIN
+#else
+#define TIME_T_MAX 0x7FFFFFFFFFFFFFFF
+#endif
+
 /*
  * Arg 2 type for gethostname in case it hasn't been defined in config file.
  */
